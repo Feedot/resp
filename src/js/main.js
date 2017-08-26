@@ -20,7 +20,8 @@ class Change{
 }
 window.onload = function () {
     (function(){
-        let changeQuantity = new Change()
+        let changeQuantity = new Change();
+        changeQuantity.innerRow()
         document.querySelector('select').onchange = ()=>{
             changeQuantity.innerRow()
         }
