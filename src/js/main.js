@@ -10,7 +10,6 @@ class Change{
     innerRow(){
         let count = document.querySelector('select').value,
             self = this;
-        console.log(count);
         Array.from(document.getElementsByClassName('row')).map((row)=>{
             row.innerHTML = '';
             for (let i = 0; i<count;i++){
