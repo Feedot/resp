@@ -1,0 +1,6 @@
+.row{
+    display: table
+}
+.row > .col{
+    box-sizing: border-box;
+}
