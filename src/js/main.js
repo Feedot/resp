@@ -1,5 +1,8 @@
 class Change{
-    constructor(){
+    constructor(selector){
+        this.elem = document.querySelector(selector);
+        this.elem.onchange = () => this.innerRow();
+        this.innerRow();
     }
     createColumn(count,row,i){
         let col = document.createElement('div');
@@ -8,22 +11,13 @@ class Change{
         row.appendChild(col);
     }
     innerRow(){
-        let count = document.querySelector('select').value,
-            self = this;
+        let count = this.elem.value;
         Array.from(document.getElementsByClassName('row')).map((row)=>{
             row.innerHTML = '';
             for (let i = 0; i<count;i++){
-                self.createColumn(count,row,i)
+                this.createColumn(count,row,i)
             }
         })
     }
 }
-window.onload = function () {
-    (function(){
-        let changeQuantity = new Change();
-        changeQuantity.innerRow()
-        document.querySelector('select').onchange = ()=>{
-            changeQuantity.innerRow()
-        }
-    }())
-}
+window.onload = ()=> {const changeQuantity = new Change('select')};
